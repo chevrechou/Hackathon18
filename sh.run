@@ -1,0 +1,15 @@
+#!/bin/ksh
+i=0
+max=$1
+while (( i <= max ))
+do
+    touch res${i}.txt 
+    python Speech.py >> res${i}.txt 
+   
+    node index.js 
+    (( i += 1 ))
+done
+
+rm res*.txt
+
+exit
